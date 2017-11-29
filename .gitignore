@@ -1,2 +1,4 @@
 node_modules/
 mock
+server/config
+npm-debug.log
