@@ -2,12 +2,13 @@ import 'babel-register'
 
 import Koa from 'koa'
 import cors from'koa-cors'
-// import bodyParser from'koa-bodyparser'
+import convert from 'koa-convert';
+
 import router from './server/router'
 import config from './server/config'
 
 const app = new Koa();
-// app.use(cors())
+app.use(convert(cors()))
 // app.use(bodyParser())
 app.use(router.routes())
 .use(router.allowedMethods())
