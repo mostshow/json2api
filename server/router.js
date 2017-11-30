@@ -25,7 +25,12 @@ router.get('*', koaBody(), handle)
 async function handle(ctx) {
 	ctx.set({'Content-Type':'application/json;charset=utf-8'})
 	try {
-
+     // let arrSetCookies =[
+     //  	'SID=eb18763e-9b88-4264-a6a2-1d3690f3daa4; Domain=.16.15.106; Path=/',
+     //    'TICKET=284588d9-cfb8-44f0-b440-b5bad0d98955; Domain=.16.15.106; Path=/; HttpOnly',
+     //    'isForceEvaluate=true; Domain=.16.15.106; Path=/'
+     //     ]
+		console.log(res.headers.raw()['set-cookie'])
 		let json =  await readFile(__dirname+'/mock'+ctx.request.url + '.json')
 		ctx.body = json.toString()
 		console.log('local')
