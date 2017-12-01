@@ -30,7 +30,6 @@ async function handle(ctx) {
      //    'TICKET=284588d9-cfb8-44f0-b440-b5bad0d98955; Domain=.16.15.106; Path=/; HttpOnly',
      //    'isForceEvaluate=true; Domain=.16.15.106; Path=/'
      //     ]
-		console.log(res.headers.raw()['set-cookie'])
 		let json =  await readFile(__dirname+'/mock'+ctx.request.url + '.json')
 		ctx.body = json.toString()
 		console.log('local')
@@ -53,7 +52,6 @@ async function handle(ctx) {
 		setCookie(arrSetCookies)
 		let json = await res.json()
 		ctx.body = json;
-		console.log(json)
 		console.log('remote')
 	}
 
