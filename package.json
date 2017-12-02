@@ -1,17 +1,13 @@
 {
   "name": "mockserver",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "node server/generate.js",
-    "start": "NODE_ENV='development' nodemon --watch server  server/app.js"
-  },
-  "author": "lyn",
-  "license": "ISC",
+  "version": "0.0.1",
+  "description": "mock servers",
+  "main": "./lib/server/index.js",
+  "bin": "./bin/index.js",
   "dependencies": {
     "babel-preset-env": "^1.6.1",
+    "chalk": "^2.3.0",
+    "json-parse-helpfulerror": "^1.0.3",
     "koa": "^2.4.1",
     "koa-body": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
@@ -19,7 +15,10 @@
     "koa-cors": "^0.0.16",
     "koa-logger": "^3.1.0",
     "koa-router": "^7.3.0",
-    "node-fetch": "^1.7.3"
+    "node-fetch": "^1.7.3",
+    "server-destroy": "^1.0.1",
+    "update-notifier": "^2.3.0",
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
@@ -28,7 +27,31 @@
     "glob": "^7.1.2",
     "please-upgrade-node": "^3.0.1"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node server/generate.js",
+    "watch": "babel --watch src -d lib  --copy-files",
+    "build": "babel src -d lib  --copy-files",
+    "start2": "NODE_ENV='development' nodemon --watch server  src/server/app.js",
+    "start": "babel-node src/cli/bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mostshow/mock-server.git"
+  },
+  "keywords": [
+    "JSON",
+    "server",
+    "API",
+    "mock",
+    "mocking",
+    "test",
+    "testing",
+    "data"
+  ],
+  "author": "lyn",
+  "license": "ISC",
   "engines": {
-    "node": ">=7.6"
+    "node": ">=4"
   }
 }
