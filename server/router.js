@@ -1,11 +1,10 @@
 
-import Router from 'koa-router'
-import fetch from 'node-fetch'
-import querystring from 'querystring'
-import koaBody  from'koa-body'
-import fs from 'fs'
-import cookie from './utils/cookie'
-import config from './config'
+const Router = require('koa-router')
+const fetch = require('node-fetch')
+const querystring = require('querystring')
+const koaBody = require('koa-body')
+const fs = require('fs')
+const config = require('./config')
 
 const router = new Router();
 
@@ -82,4 +81,4 @@ async function handle(ctx) {
 
 	}
 }
-export default router
+module.exports = router 
