@@ -33,7 +33,6 @@ module.exports = function(argv) {
   let app
   let server
   let source = argv._[0] || argv.source 
-  console.log(argv._)
   argv.source = path.join(process.cwd(), source)
   function start(cb) {
       app = createApp(argv)

@@ -25,11 +25,11 @@ module.exports = function() {
         description: '设置转发url(绝对路径)',
         default: 'http://127.0.0.1'
       },
-      // source: {
-      //   alias: 'S',
-      //   description: '设置多个需要mock的目录',
-      //   default: 'mock'  
-      // },
+      source: {
+        alias: 'S',
+        description: '设置多个需要mock的目录',
+        default: 'mock'  
+      },
       watch: {
         alias: 'w',
         description: '监听文件',
