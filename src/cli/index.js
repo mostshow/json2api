@@ -12,7 +12,7 @@ module.exports = function() {
     .options({
       port: {
         alias: 'p',
-        description: '设置本地端口',
+        description: '设置本地port',
         default: 3333
       },
       host: {
@@ -22,7 +22,7 @@ module.exports = function() {
       },
       remote: {
         alias: 'R',
-        description: '设置转发接口(绝对路径)',
+        description: '设置转发url(绝对路径)',
         default: 'http://127.0.0.1'
       },
       // source: {
