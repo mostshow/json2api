@@ -19,7 +19,7 @@
     "node-fetch": "^1.7.3",
     "server-destroy": "^1.0.1",
     "update-notifier": "^2.3.0",
-    "pleasdde-upgrade-node": "^3.0.1",
+    "please-upgrade-node": "^3.0.1",
     "yargs": "^10.0.3"
   },
   "devDependencies": {
