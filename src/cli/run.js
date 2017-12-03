@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
 const chokidar = require('chokidar');
-const glob = require('glob');
 
 const enableDestroy = require('server-destroy')
 const mockServer = require('../server')
