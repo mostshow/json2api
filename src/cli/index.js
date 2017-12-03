@@ -8,7 +8,7 @@ module.exports = function() {
   
   const argv = yargs
     .config('config')
-    .usage('$0 [options]')
+    .usage('$0 [options] <source>')
     .options({
       port: {
         alias: 'p',
@@ -23,7 +23,7 @@ module.exports = function() {
       remote: {
         alias: 'R',
         description: '设置转发接口(绝对路径)',
-        default: 'http://localhost'
+        default: 'http://127.0.0.1'
       },
       // source: {
       //   alias: 'S',
