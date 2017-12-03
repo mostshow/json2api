@@ -8,36 +8,32 @@ module.exports = function() {
   
   const argv = yargs
     .config('config')
-    .usage('$0 [options] <source>')
+    .usage('$0 [options]')
     .options({
       port: {
         alias: 'p',
-        description: 'Set port',
+        description: '设置本地端口',
         default: 3333
       },
       host: {
         alias: 'H',
-        description: 'Set host',
+        description: '设置本地host',
         default: '0.0.0.0'
       },
       remote: {
         alias: 'R',
-        description: 'Set remote host',
+        description: '设置转发接口(绝对路径)',
         default: 'http://localhost'
       },
-      source: {
-        alias: 'S',
-        description: 'Set source',
-        default: 'mock'  
-      },
+      // source: {
+      //   alias: 'S',
+      //   description: '设置多个需要mock的目录',
+      //   default: 'mock'  
+      // },
       watch: {
         alias: 'w',
-        description: 'Watch file(s)'
-      },
-      config: {
-        alias: 'c',
-        description: 'Path to config file',
-        default: 'mock-server.json'
+        description: '监听文件',
+        default: true
       }
     })
     .boolean('watch')
@@ -45,8 +41,8 @@ module.exports = function() {
     .alias('help', 'h')
     .version(pkg.version)
     .alias('version', 'v')
-    .example('$0 mock', '')
-    .epilog('hello!').argv
-    // .require(1,'Missing <source> argument').argv
+    .example('$0 mockdir', '')
+    .epilog('welcome!!')
+    .require(1,'Missing <source> argument').argv
   run(argv)
 }
