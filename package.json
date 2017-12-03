@@ -1,5 +1,5 @@
 {
-  "name": "mockserver",
+  "name": "json2api",
   "version": "0.0.1",
   "description": "mock servers",
   "main": "./lib/server/index.js",
@@ -33,7 +33,6 @@
     "generate": "node server/generate.js",
     "watch": "babel --watch src -d lib  --copy-files",
     "build": "babel src -d lib  --copy-files",
-    "start2": "NODE_ENV='development' nodemon --watch server  src/server/app.js",
     "start": "babel-node src/cli/bin"
   },
   "repository": {
