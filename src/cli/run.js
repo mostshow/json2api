@@ -32,7 +32,9 @@ function createApp( argv) {
 module.exports = function(argv) {
   let app
   let server
-  argv.source = path.join(process.cwd(), argv._[0])
+  let source = argv._[0] || argv.source 
+  console.log(argv._)
+  argv.source = path.join(process.cwd(), source)
   function start(cb) {
       app = createApp(argv)
       server = app.listen(argv.port, argv.host)
