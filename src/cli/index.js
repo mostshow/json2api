@@ -23,12 +23,12 @@ module.exports = function() {
       remote: {
         alias: 'R',
         description: '设置转发url(绝对路径)',
-        default: 'http://10.16.15.106:11051'
+        default: 'http://127.0.0.1'
       },
       source: {
         alias: 'S',
         description: '设置多个需要mock的目录',
-        default: 'mock'
+        default: 'mock' 
       },
       watch: {
         alias: 'w',
@@ -42,7 +42,7 @@ module.exports = function() {
     .version(pkg.version)
     .alias('version', 'v')
     .example('$0 mockdir', '')
-    .epilog('welcome!!').argv
-    // .require(1,'Missing <source> argument').argv
+    .epilog('welcome!!')
+    .require(1,'Missing <source> argument').argv
   run(argv)
 }

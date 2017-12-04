@@ -70,6 +70,8 @@ function createRouter(opts) {
 				ctx.body = json;
 				setCookie(arrSetCookies)
 			}else{
+				console.log()
+				console.log(chalk.bgRed('remote request:'))
 				console.log(chalk.red(`url:${res.url}`))
 				console.log(chalk.red(`status:${res.status}`))
 				console.log(chalk.red(`statusText:${res.statusText}`))
