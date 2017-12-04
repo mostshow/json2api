@@ -44,6 +44,7 @@ function createRouter(opts) {
 			// console.log(ctx.request.body)
 			//     ]
 			if( ctx.request.url == '/favicon.ico') return ctx.body = '';
+			console.log()
 			console.log(chalk.bgGreen(`Url => ${ctx.request.url}`))
 			console.log(chalk.bgBlack (`Param : ${querystring.stringify(ctx.request.body)}`))
 			let requestUrl = ctx.request.url;
@@ -71,7 +72,7 @@ function createRouter(opts) {
 				setCookie(arrSetCookies)
 			}else{
 				console.log()
-				console.log(chalk.bgRed('remote request:'))
+				console.log(chalk.bgRed('Remote request failure:'))
 				console.log(chalk.red(`url:${res.url}`))
 				console.log(chalk.red(`status:${res.status}`))
 				console.log(chalk.red(`statusText:${res.statusText}`))

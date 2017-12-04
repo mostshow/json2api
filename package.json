@@ -1,6 +1,6 @@
 {
   "name": "json2api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "mock servers",
   "main": "./lib/server/index.js",
   "bin": "./bin/json2api",
