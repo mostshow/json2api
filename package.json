@@ -1,7 +1,7 @@
 {
   "name": "json2api",
-  "version": "0.2.1",
-  "description": "mock servers",
+  "version": "0.2.3",
+  "description": "Create a mock server using json files and proxy remote host.",
   "main": "./lib/server/index.js",
   "bin": "./bin/json2api",
   "dependencies": {
