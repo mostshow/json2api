@@ -1,4 +1,4 @@
-# drfile 
+# json2api
 
 [![npm](https://img.shields.io/badge/npm-v0.2.0-blue.svg)](https://www.npmjs.com/package/json2api)
 
