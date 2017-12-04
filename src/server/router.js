@@ -40,17 +40,18 @@ function createRouter(opts) {
 			//  	'SID=eb18763e-9b88-4264-a6a2-1d3690f3daa4; Domain=.16.15.106; Path=/',
 			//    'TICKET=284588d9-cfb8-44f0-b440-b5bad0d98955; Domain=.16.15.106; Path=/; HttpOnly',
 			//    'isForceEvaluate=true; Domain=.16.15.106; Path=/'
-			//     ]
-			console.log(ctx.request.url)
-			if( ctx.request.url == '/favicon.ico') return ctx.body = '';
-			let json = await readFile( source + ctx.request.url + '.json')
-			// ctx.body = jph.parse(json.toString())
-			ctx.body = json.toString()
-			console.log('local')
 
+			// console.log(ctx.request.body)
+			//     ]
+			if( ctx.request.url == '/favicon.ico') return ctx.body = '';
+			console.log()
+			console.log(chalk.bgGreen(`Url => ${ctx.request.url}`))
+			console.log(chalk.bgBlack (`Param : ${querystring.stringify(ctx.request.body)}`))
+			let json = await readFile( source + ctx.request.url + '.json')
+			ctx.body = json.toString()
+			console.log(chalk.bgRed('local-mock'))
 		} catch (e) {
-			console.log(chalk.red(`  Error reading ${e}`))
-			console.log(remoteHost)
+			// console.log(chalk.red(`  Error reading ${e}`))
 			let requestUrl = remoteHost + ctx.request.url
 			let data = {
 				method: 'post',
@@ -64,10 +65,21 @@ function createRouter(opts) {
 
 			let res = await fetch(requestUrl, data)
 			let arrSetCookies = res.headers.raw()['set-cookie']
-			setCookie(arrSetCookies)
-			let json = await res.json()
-			ctx.body = json;
-			console.log('remote')
+			if(res.ok){
+				let json = await res.json()
+				ctx.body = json;
+				setCookie(arrSetCookies)
+			}else{
+				console.log(chalk.red(`url:${res.url}`))
+				console.log(chalk.red(`status:${res.status}`))
+				console.log(chalk.red(`statusText:${res.statusText}`))
+				ctx.body = {
+					  url: res.url,
+					  status: res.status,
+					  statusText: res.statusText
+				}
+			}
+
 		}
 
 		function setCookie(arrSetCookies) {
@@ -100,4 +112,4 @@ function createRouter(opts) {
 	return router;
 }
 // export default router
-module.exports = createRouter 
+module.exports = createRouter

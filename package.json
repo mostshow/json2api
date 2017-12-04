@@ -1,9 +1,11 @@
 {
   "name": "json2api",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "mock servers",
   "main": "./lib/server/index.js",
-  "bin": "./bin/index.js",
+  "bin": {
+    "json2api":"./bin/json2api"
+  },
   "dependencies": {
     "babel-preset-env": "^1.6.1",
     "chalk": "^2.3.0",
