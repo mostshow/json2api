@@ -44,12 +44,12 @@ function createRouter(opts) {
 			// console.log(ctx.request.body)
 			//     ]
 			if( ctx.request.url == '/favicon.ico') return ctx.body = '';
-			console.log()
 			console.log(chalk.bgGreen(`Url => ${ctx.request.url}`))
 			console.log(chalk.bgBlack (`Param : ${querystring.stringify(ctx.request.body)}`))
-			let json = await readFile( source + ctx.request.url + '.json')
+			let requestUrl = ctx.request.url;
+			let json = await readFile( source + requestUrl.substring(0,requestUrl.indexOf('?')) + '.json')
 			ctx.body = json.toString()
-			console.log(chalk.bgRed('local-mock'))
+			console.log(chalk.bgBlue('local-mock'))
 		} catch (e) {
 			// console.log(chalk.red(`  Error reading ${e}`))
 			let requestUrl = remoteHost + ctx.request.url
