@@ -21,6 +21,7 @@ const config = require('./config')
 function createRouter(opts) {
 	const source = opts.source
 	const remoteHost = opts.remote
+	const log = opts.log
 	const router = new Router();
 
 	const readFile = function (fileName) {
@@ -55,7 +56,9 @@ function createRouter(opts) {
 			let json = await readFile( path.join(source, requestUrl.split('?')[0] + '.json'))
 			ctx.body = json.toString()
 		} catch (e) {
-			// console.log(chalk.red(`  Error reading ${e}`))
+			if(log){
+				console.log(chalk.red(`  Error reading ${e}`))
+			}
 			let requestUrl = remoteHost + ctx.request.url
 			let data = {
 				method: 'post',

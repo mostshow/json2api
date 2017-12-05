@@ -33,9 +33,15 @@ module.exports = function() {
         alias: 'w',
         description: '监听文件',
         default: true
+      },
+      log: {
+        alias: 'log',
+        description: '输出日志',
+        default: false
       }
     })
     .boolean('watch')
+    .boolean('log')
     .help('help')
     .alias('help', 'h')
     .version(pkg.version)
