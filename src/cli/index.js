@@ -35,7 +35,7 @@ module.exports = function() {
         default: true
       },
       log: {
-        alias: 'log',
+        alias: 'l',
         description: '输出日志',
         default: false
       }
