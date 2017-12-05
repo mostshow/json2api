@@ -10,9 +10,12 @@ const Router = require('koa-router')
 const fetch = require('node-fetch')
 const querystring = require('querystring')
 const koaBody = require('koa-body')
+
 const fs = require('fs')
 const jph = require('json-parse-helpfulerror')
 const chalk = require('chalk')
+const path = require('path');
+
 const config = require('./config')
 
 function createRouter(opts) {
@@ -47,10 +50,10 @@ function createRouter(opts) {
 			console.log()
 			console.log(chalk.bgGreen(`Url => ${ctx.request.url}`))
 			console.log(chalk.bgBlack (`Param : ${querystring.stringify(ctx.request.body)}`))
+
 			let requestUrl = ctx.request.url;
-			let json = await readFile( source + requestUrl.substring(0,requestUrl.indexOf('?')) + '.json')
+			let json = await readFile( path.join(source, requestUrl.split('?')[0] + '.json'))
 			ctx.body = json.toString()
-			console.log(chalk.bgBlue('local-mock'))
 		} catch (e) {
 			// console.log(chalk.red(`  Error reading ${e}`))
 			let requestUrl = remoteHost + ctx.request.url

@@ -5,7 +5,6 @@ const pkg = require('../../package.json')
 
 module.exports = function() {
   updateNotifier({ pkg }).notify()
-
   const argv = yargs
     .config('config')
     .usage('$0 [options] <source>')
@@ -28,7 +27,7 @@ module.exports = function() {
       source: {
         alias: 'S',
         description: '设置多个需要mock的目录',
-        default: 'mock' 
+        default: 'mock'
       },
       watch: {
         alias: 'w',

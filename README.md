@@ -1,6 +1,6 @@
 # json2api
 
-[![npm](https://img.shields.io/badge/npm-v0.2.0-blue.svg)](https://www.npmjs.com/package/json2api)
+[![npm](https://img.shields.io/badge/npm-v0.2.4-blue.svg)](https://www.npmjs.com/package/json2api)
 
 Create a mock server using json files and proxy remote host.
 
